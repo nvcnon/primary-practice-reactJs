@@ -1,42 +1,25 @@
 import React from 'react';
-import Navbar from '../../components/navbar/Navbar'
-import style from './home.module.css' 
+import Navbar from '../../components/navbar/Navbar';
+import style from './home.module.css';
 import Article from '../../components/article/Article';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
 
-    let articleList = [
-        {
-            "id": 1,
-            "imageUrl": "https://cinemavehicles.com/images/F142566103.jpg",
-            "title": "تست عنوان ۱",
-            "readingTime": 5
-        },
-        {
-            "id": 2,
-            "imageUrl": "https://cinemavehicles.com/images/F142566039.jpg",
-            "title": "تست عنوان ۲",
-            "readingTime": 3
-        },
-        {
-            "id": 3,
-            "imageUrl": "https://cinemavehicles.com/images/F142566046.gif",
-            "title": "تست عنوان ۳",
-            "readingTime": 8
-        },
-        {
-            "id": 4,
-            "imageUrl": "https://cinemavehicles.com/images/F142566054.gif",
-            "title": "تست عنوان ۴",
-            "readingTime": 4
-        },
-        {
-            "id": 5,
-            "imageUrl": "https://cinemavehicles.com/images/F142566055.jpg",
-            "title": "تست عنوان ۵",
-            "readingTime": 10
-        }
-    ]
+    const [state, setstate] = useState([]);
+
+    useEffect(() => {
+        
+        axios.get('http://localhost:8000/articles').then(result => {
+            setstate(result.data.data)
+            console.log(result.data.data)
+        }).catch((error) => {
+            console.log(error);
+        })
+
+    }, []);
+
     return (
         <div className={style.homeWrapper}>
             <Navbar title='Article site' />
@@ -46,7 +29,7 @@ const Home = () => {
 
                 <div className={style.articleList}>
                     {
-                        articleList.map((result) => (
+                        state.map((result) => (
                             <Article data={result}/>
                         ))
                     }
