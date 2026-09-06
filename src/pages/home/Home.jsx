@@ -4,6 +4,7 @@ import style from './home.module.css';
 import Article from '../../components/article/Article';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Footer from '../../components/footer/Footer'
 
 const Home = () => {
 
@@ -30,12 +31,16 @@ const Home = () => {
                 <div className={style.articleList}>
                     {
                         state.map((result) => (
-                            <Article data={result}/>
+                            <Article key={result.id} data={result}/>
                         ))
                     }
                 </div>
             </div>
+
+
+            <Footer />
         </div>
+
     );
 }
 

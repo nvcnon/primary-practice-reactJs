@@ -1,0 +1,15 @@
+.aboutUsPage{
+    text-align: center;
+}
+.aboutUsPage h2{
+    margin: 40px 0;
+    text-align: right;
+}
+.aboutUsPage h3{
+    margin: 40px 0;
+    color: #536e5c;
+}
+.aboutUsPage p{
+    margin: 40px 0;
+    text-align: right;
+}

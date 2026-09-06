@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './navbar.module.css'
+import {Link} from 'react-router-dom'
 
 const Navbar = (props) => {
     
@@ -10,12 +11,11 @@ const Navbar = (props) => {
             <div className='container'>
                 <div className={style.header}>
 
-                    <h3>{props.title}</h3>
+                    <Link to="/"><h3>{props.title}</h3></Link>
 
                     <ul>
-                        <li>لیست مقالات</li>
-                        <li>مقاله جدید</li>
-                        <li>درباره</li>
+                        <Link to="/"><li>لیست مقالات</li></Link>
+                        <Link to="/about"><li>درباره</li></Link>
                     </ul>
                 </div>
             </div>

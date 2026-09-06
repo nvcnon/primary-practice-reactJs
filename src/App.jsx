@@ -1,16 +1,16 @@
 import Navbar from "./components/navbar/Navbar"
 import Footer from "./components/footer/Footer"
 import Home from "./pages/home/Home";
+import {Routes, Route} from 'react-router-dom'
+import AboutUs from "./pages/aboutUs/AboutUs";
 
 function App() {
   return (
     <div>
-
-      <Home /> 
-
-      {/* <h2>body</h2> */}
-
-      {/* <Footer />  */}
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/about" element={<AboutUs />} /> 
+      </Routes>
     </div>
   );
 }
