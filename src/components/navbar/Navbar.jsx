@@ -16,6 +16,7 @@ const Navbar = (props) => {
                     <ul>
                         <Link to="/"><li>لیست مقالات</li></Link>
                         <Link to="/about"><li>درباره</li></Link>
+                        <Link to="/create-article"><li>ساخت مقاله</li></Link>
                     </ul>
                 </div>
             </div>

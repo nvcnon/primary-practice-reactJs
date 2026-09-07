@@ -6,18 +6,23 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom';
+import Loading from '../../components/loading/Loading';
 
 const Home = () => {
 
     const [state, setstate] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
+
 
     useEffect(() => {
-        
+        setIsLoading(true)  
         axios.get('http://localhost:8000/articles').then(result => {
             setstate(result.data)
             console.log(result.data)
+            setIsLoading(false)
         }).catch((error) => {
             console.log(error);
+            setIsLoading(false)
         })
 
     }, []);
@@ -25,6 +30,7 @@ const Home = () => {
     return (
         <div className={style.homeWrapper}>
             <Navbar title='Article site' />
+            {isLoading ? <Loading /> : 
             <div className='container'>
 
                 <h2>مقالات</h2>
@@ -36,7 +42,7 @@ const Home = () => {
                         ))
                     }
                 </div>
-            </div>
+            </div>}
 
 
             <Footer />

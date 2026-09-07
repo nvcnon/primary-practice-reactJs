@@ -6,20 +6,24 @@ import Footer from '../../components/footer/Footer';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Loading from '../../components/loading/Loading';
 
 const ArticlePage = () => {
     
     const [state, setstate] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
 
     const params = useParams()
     
     useEffect(() => {
-        
+        setIsLoading(true)
         axios.get(`http://localhost:8000/articles/${params.id}`).then((result)=>{
             console.log(result.data)
             setstate(result.data)
+            setIsLoading(false)
         }).catch((error) => {
             console.log(error)
+            setIsLoading(false)
         })
 
     }, []);
@@ -27,7 +31,8 @@ const ArticlePage = () => {
     return (
         <div>
             <Navbar title='Article site' />
-            
+          
+            {isLoading ? <Loading /> : 
             <div className={style.articleWrapper}>
                 <div className='container'>
 
@@ -44,9 +49,8 @@ const ArticlePage = () => {
                     <p>{state.content}</p>
 
                 </div>
-            </div>
-            
-            <Footer />
+            </div>}
+            <Footer /> 
         </div>
     );
 }

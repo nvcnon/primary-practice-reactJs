@@ -3,13 +3,15 @@ import style from './about.module.css';
 import Navbar from '../../components/navbar/Navbar'
 import iran21 from '../../assets/images/iran21.gif'
 import Footer from '../../components/footer/Footer';
+import Loading from '../../components/loading/Loading';
+
 
 const AboutUs = () => {
     return (
         <div className={style.aboutUsPage}>
 
             <Navbar title='Article site' />
-
+ 
             <div className='container'>
                 <h2>درباره ما</h2>
                 <p>
