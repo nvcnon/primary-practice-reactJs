@@ -1,0 +1,28 @@
+.articleWrapper{
+    text-align: center;
+}
+.articleWrapper h1{
+    text-align: right;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+.articleWrapper img{
+    width: 50%;
+    margin-bottom: 30px;
+}
+.articleWrapper p{
+    text-align: right;
+    color: #777;
+    font-size: large;
+}
+.articleInfo{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 30px;
+    flex-direction: row-reverse;
+}
+.articleInfo span{
+    margin-left: 10px;
+    color: #777;
+}

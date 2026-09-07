@@ -5,6 +5,7 @@ import Article from '../../components/article/Article';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/footer/Footer'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -13,8 +14,8 @@ const Home = () => {
     useEffect(() => {
         
         axios.get('http://localhost:8000/articles').then(result => {
-            setstate(result.data.data)
-            console.log(result.data.data)
+            setstate(result.data)
+            console.log(result.data)
         }).catch((error) => {
             console.log(error);
         })
@@ -31,7 +32,7 @@ const Home = () => {
                 <div className={style.articleList}>
                     {
                         state.map((result) => (
-                            <Article key={result.id} data={result}/>
+                            <Link to={`/article/${result.id}`}><Article key={result.id} data={result}/></Link>
                         ))
                     }
                 </div>
