@@ -7,3 +7,17 @@
     font-size: 18px;
     font-width: 300;
 }
+.buttonWrapper{
+    text-align: right;       
+}
+.buttonWrapper button{
+    padding: 5px 10px;
+    background-color: cornflowerblue;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.buttonWrapper button:active{
+    opacity: .8;
+}
